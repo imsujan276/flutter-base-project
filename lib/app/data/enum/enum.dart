@@ -1,0 +1,1 @@
+enum SHARED_DATA { TOKEN, USER }
