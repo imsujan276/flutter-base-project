@@ -1,4 +1,4 @@
-import 'package:blood_finder/app/constants/constants.dart';
+import 'package:flutter_base_project/app/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -13,7 +13,7 @@ class SplashScreenView extends StatefulWidget {
 class _SplashScreenViewState extends State<SplashScreenView>
     with TickerProviderStateMixin {
   var controller = Get.find<SplashScreenController>();
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

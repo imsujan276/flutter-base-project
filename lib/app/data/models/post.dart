@@ -1,6 +1,6 @@
 class Post {
-  int id;
-  String title;
+  int? id;
+  String? title;
 
   Post({this.id, this.title});
 

@@ -1,6 +1,6 @@
-import 'package:blood_finder/app/constants/constants.dart';
-import 'package:blood_finder/app/constants/theme_data.dart';
-import 'package:blood_finder/initial_bindings.dart';
+import 'package:flutter_base_project/app/constants/constants.dart';
+import 'package:flutter_base_project/app/constants/theme_data.dart';
+import 'package:flutter_base_project/initial_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 

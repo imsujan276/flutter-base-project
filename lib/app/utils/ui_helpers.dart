@@ -1,10 +1,10 @@
-import 'package:blood_finder/app/constants/theme_data.dart';
+import 'package:flutter_base_project/app/constants/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 /// custom app loader widget
 class UIHelpers {
-  static Future<void> showLoading({String message}) async {
+  static Future<void> showLoading({String? message}) async {
     // EasyLoading.instance..loadingStyle = EasyLoadingStyle.light;
     EasyLoading.show(
         // status: "Logging In...",
@@ -35,7 +35,7 @@ class UIHelpers {
     EasyLoading.dismiss();
   }
 
-  static void showToast(String message) {
+  static void showToast(String? message) {
     EasyLoading.instance..loadingStyle = EasyLoadingStyle.dark;
     EasyLoading.showToast(
       "${message ?? ''}",

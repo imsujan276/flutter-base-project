@@ -1,4 +1,4 @@
-import 'package:blood_finder/app/constants/constants.dart';
+import 'package:flutter_base_project/app/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class Themes {

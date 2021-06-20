@@ -1,8 +1,8 @@
-import 'package:blood_finder/app/core/services/internet_connectivity/internet_connectivity.dart';
-import 'package:blood_finder/app/core/services/storage_service/shared_preference.dart';
-import 'package:blood_finder/app/data/enum/enum.dart';
-import 'package:blood_finder/app/utils/device_info.dart';
-import 'package:blood_finder/app/widgets/modals/no_internet_connection_modal.dart';
+import 'package:flutter_base_project/app/core/services/internet_connectivity/internet_connectivity.dart';
+import 'package:flutter_base_project/app/core/services/storage_service/shared_preference.dart';
+import 'package:flutter_base_project/app/data/enum/enum.dart';
+import 'package:flutter_base_project/app/utils/device_info.dart';
+import 'package:flutter_base_project/app/widgets/modals/no_internet_connection_modal.dart';
 import 'package:dio/dio.dart';
 import 'package:get/instance_manager.dart';
 
@@ -11,22 +11,22 @@ abstract class HttpService {
   void init();
 
   /// HTTP get method
-  Future<Response> get(String url, {Map<String, dynamic> queryParams});
+  Future<Response?> get(String url, {Map<String, dynamic> queryParams});
 
   /// HTTP post method
-  Future<Response> post(String url, {dynamic data});
+  Future<Response?> post(String url, {dynamic data});
 
   /// HTTP patch method
-  Future<Response> patch(String url,
+  Future<Response?> patch(String url,
       {dynamic data, Map<String, dynamic> queryParams});
 
   /// HTTP delete method
-  Future<Response> delete(String url,
+  Future<Response?> delete(String url,
       {dynamic data, Map<String, dynamic> queryParams});
 }
 
 class HttpServiceImpl implements HttpService {
-  Dio _dio;
+  late Dio _dio;
   SharedPref pref = SharedPref.instance;
   final internetController = Get.find<InternetConnectivityController>();
 
@@ -36,7 +36,7 @@ class HttpServiceImpl implements HttpService {
         // baseUrl: ApiUrl.PROD,
         followRedirects: false,
         validateStatus: (status) {
-          return status <= 500;
+          return status! <= 500;
         },
         headers: {"Content-Type": "application/json"}));
 
@@ -57,7 +57,7 @@ class HttpServiceImpl implements HttpService {
       return handler.next(options);
     }, onResponse: (response, handler) {
       print("${response.statusCode} ${response.statusMessage}");
-      if (response.statusCode != 200) return handler.next(response);
+      return handler.next(response);
     }, onError: (DioError e, handler) {
       print("============== DIO INTERCEPTOR ERROR ==============");
       print(e.message);
@@ -66,13 +66,13 @@ class HttpServiceImpl implements HttpService {
   }
 
   Future<String> getAuthToken() async {
-    String token = await pref.read(SHARED_DATA.TOKEN.toString());
-    return "Bearer $token".replaceAll('"', '');
+    String token = (await pref.read(SHARED_DATA.TOKEN.toString()));
+    return token.length > 0 ? "NO Token" : "Bearer $token".replaceAll('"', '');
   }
 
   @override
-  Future<Response> get(String url, {Map<String, dynamic> queryParams}) async {
-    Response response;
+  Future<Response?> get(String url, {Map<String, dynamic>? queryParams}) async {
+    Response? response;
     if (!internetController.isInternetConnected.value) {
       NoInternetConnectionModal();
       return response;
@@ -87,8 +87,8 @@ class HttpServiceImpl implements HttpService {
   }
 
   @override
-  Future<Response> post(String url, {data}) async {
-    Response response;
+  Future<Response?> post(String url, {data}) async {
+    Response? response;
     if (!internetController.isInternetConnected.value) {
       NoInternetConnectionModal();
       return response;
@@ -103,9 +103,9 @@ class HttpServiceImpl implements HttpService {
   }
 
   @override
-  Future<Response> patch(String url,
-      {data, Map<String, dynamic> queryParams}) async {
-    Response response;
+  Future<Response?> patch(String url,
+      {data, Map<String, dynamic>? queryParams}) async {
+    Response? response;
     if (!internetController.isInternetConnected.value) {
       NoInternetConnectionModal();
       return response;
@@ -121,9 +121,9 @@ class HttpServiceImpl implements HttpService {
   }
 
   @override
-  Future<Response> delete(String url,
-      {data, Map<String, dynamic> queryParams}) async {
-    Response response;
+  Future<Response?> delete(String url,
+      {data, Map<String, dynamic>? queryParams}) async {
+    Response? response;
     if (!internetController.isInternetConnected.value) {
       NoInternetConnectionModal();
       return response;

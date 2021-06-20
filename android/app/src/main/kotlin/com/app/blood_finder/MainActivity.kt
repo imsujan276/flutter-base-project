@@ -1,4 +1,4 @@
-package com.app.blood_finder
+package com.app.flutter_base_project
 
 import io.flutter.embedding.android.FlutterActivity
 

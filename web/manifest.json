@@ -1,6 +1,6 @@
 {
-    "name": "blood_finder",
-    "short_name": "blood_finder",
+    "name": "flutter_base_project",
+    "short_name": "flutter_base_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

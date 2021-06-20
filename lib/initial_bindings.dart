@@ -1,5 +1,5 @@
-import 'package:blood_finder/app/core/services/internet_connectivity/internet_connectivity.dart';
-import 'package:blood_finder/app/modules/home/controllers/home_controller.dart';
+import 'package:flutter_base_project/app/core/services/internet_connectivity/internet_connectivity.dart';
+import 'package:flutter_base_project/app/modules/home/controllers/home_controller.dart';
 import 'package:get/instance_manager.dart';
 
 class InitialBinding implements Bindings {

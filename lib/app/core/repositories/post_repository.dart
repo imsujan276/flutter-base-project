@@ -1,5 +1,5 @@
-import 'package:blood_finder/app/core/services/http/http_service.dart';
-import 'package:blood_finder/app/data/models/post.dart';
+import 'package:flutter_base_project/app/core/services/http/http_service.dart';
+import 'package:flutter_base_project/app/data/models/post.dart';
 
 abstract class PostRepository {
   Future<List<Post>> getAllPosts();

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 /// custom text button widget
 class CustomTextButton extends StatelessWidget {
   CustomTextButton({
-    @required this.label,
-    @required this.onPressed,
+    required this.label,
+    required this.onPressed,
   });
 
   final VoidCallback onPressed;
@@ -31,8 +31,8 @@ class CustomTextButton extends StatelessWidget {
 /// custom raised/elevated button widget
 class CustomRaisedButton extends StatelessWidget {
   CustomRaisedButton({
-    @required this.label,
-    @required this.onPressed,
+    required this.label,
+    required this.onPressed,
   });
 
   final VoidCallback onPressed;
@@ -64,8 +64,8 @@ class CustomRaisedButton extends StatelessWidget {
 /// custom outlined button widget
 class CustomOutlinedButton extends StatelessWidget {
   CustomOutlinedButton({
-    @required this.label,
-    @required this.onPressed,
+    required this.label,
+    required this.onPressed,
   });
 
   final VoidCallback onPressed;

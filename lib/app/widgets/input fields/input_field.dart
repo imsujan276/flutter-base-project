@@ -1,5 +1,5 @@
-import 'package:blood_finder/app/constants/constants.dart';
-import 'package:blood_finder/app/constants/theme_data.dart';
+import 'package:flutter_base_project/app/constants/constants.dart';
+import 'package:flutter_base_project/app/constants/theme_data.dart';
 import 'package:flutter/material.dart';
 
 /// custom text input field widget
@@ -7,26 +7,23 @@ class InputField extends StatelessWidget {
   const InputField(
       {this.label,
       this.hintText,
-      this.obscureText,
+      this.obscureText = false,
       this.textInputType,
       this.icon,
       this.validator,
       this.onFieldSubmitted,
       this.onChanged,
-      this.iconColor,
-      this.textFieldColor,
       this.controller,
       this.autovalidateMode});
 
-  final IconData icon;
-  final String hintText;
-  final TextInputType textInputType;
-  final Color textFieldColor, iconColor;
+  final IconData? icon;
+  final String? hintText;
+  final TextInputType? textInputType;
   final bool obscureText;
   final validator;
-  final ValueChanged<String> onFieldSubmitted;
-  final ValueChanged<String> onChanged;
-  final String label;
+  final ValueChanged<String>? onFieldSubmitted;
+  final ValueChanged<String>? onChanged;
+  final String? label;
   final controller;
   final autovalidateMode;
 
@@ -61,7 +58,7 @@ class InputField extends StatelessWidget {
         validator: validator ?? null,
         onFieldSubmitted: onFieldSubmitted ?? null,
         onChanged: onChanged ?? null,
-        obscureText: obscureText ?? false,
+        obscureText: obscureText,
         keyboardType: textInputType ?? TextInputType.text,
       ),
     ));

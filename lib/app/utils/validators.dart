@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// password validator
-String validatePassword({@required String string}) {
+String? validatePassword({required String string}) {
   if (string.isEmpty) {
     return "* Required";
   } else if (string.length < 6) {
@@ -12,8 +12,7 @@ String validatePassword({@required String string}) {
     return null;
 }
 
-String confirmPassword(
-    {@required String password, @required String cPassword}) {
+String? confirmPassword({required String password, required String cPassword}) {
   if (password == cPassword) {
     return null;
   } else
@@ -21,7 +20,7 @@ String confirmPassword(
 }
 
 /// email validator
-String validateEmail({@required String string}) {
+String? validateEmail({required String string}) {
   String regex =
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
   if (string.isEmpty) return "* Required";
@@ -32,38 +31,38 @@ String validateEmail({@required String string}) {
 }
 
 /// validate min length
-String validateMinLength({@required String string, @required int length}) {
+String? validateMinLength({required String string, required int length}) {
   return (string.length < length && string.isEmpty)
       ? "It must be greate than $length characters"
       : null;
 }
 
 /// validate max length
-String validateMaxLength({@required String string, int length = 4}) {
+String? validateMaxLength({required String string, int length = 4}) {
   return string.length > length
       ? "It must not exceed $length characters"
       : null;
 }
 
 /// validate empty string
-String validateIsEmpty({@required String string}) {
+String? validateIsEmpty({required String string}) {
   return string.isEmpty ? "* Required" : null;
 }
 
 /// validate min-max length
-String validateMinMaxLength(
-    {@required String string, int minLegth = 1, int maxLength = 10}) {
+String? validateMinMaxLength(
+    {required String string, int minLegth = 1, int maxLength = 10}) {
   return (string.length < minLegth || string.length > maxLength)
       ? "It must be between $minLegth and $maxLength characters"
       : null;
 }
 
 /// validate min-max length with regex
-String validateMinMaxLengthWithRegex(
-    {@required String string,
+String? validateMinMaxLengthWithRegex(
+    {required String string,
     int minLegth = 1,
     int maxLength = 10,
-    @required String regex,
+    required String regex,
     String regexMessage = "Invalid data"}) {
   if (string.length < minLegth || string.length > maxLength) {
     return "It must be between $minLegth and $maxLength characters";

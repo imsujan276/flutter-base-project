@@ -1,8 +1,8 @@
-import 'package:blood_finder/app/constants/constants.dart';
-import 'package:blood_finder/app/constants/theme_data.dart';
-import 'package:blood_finder/app/utils/size_config.dart';
-import 'package:blood_finder/app/widgets/app_drawer.dart';
-import 'package:blood_finder/app/widgets/buttons/custom_button.dart';
+import 'package:flutter_base_project/app/constants/constants.dart';
+import 'package:flutter_base_project/app/constants/theme_data.dart';
+import 'package:flutter_base_project/app/utils/size_config.dart';
+import 'package:flutter_base_project/app/widgets/app_drawer.dart';
+import 'package:flutter_base_project/app/widgets/buttons/custom_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -25,7 +25,7 @@ class HomeView extends GetView<HomeController> {
         onRefresh: () => controller.reset(),
         child: ListView(
           children: [
-            Center(
+            Container(
               child: Padding(
                 padding: EdgeInsets.all(Constants.defaultPadding),
                 child: Form(
@@ -56,7 +56,7 @@ class HomeView extends GetView<HomeController> {
                                 ? Container()
                                 : ListView.builder(
                                     physics: BouncingScrollPhysics(),
-                                    itemCount: controller.posts?.length ?? 0,
+                                    itemCount: controller.posts.length,
                                     shrinkWrap: true,
                                     itemBuilder:
                                         (BuildContext context, int index) {

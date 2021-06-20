@@ -1,4 +1,4 @@
-import 'package:blood_finder/app/widgets/modals/no_internet_connection_modal.dart';
+import 'package:flutter_base_project/app/widgets/modals/no_internet_connection_modal.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';

@@ -1,12 +1,12 @@
-import 'package:blood_finder/app/constants/theme_data.dart';
+import 'package:flutter_base_project/app/constants/theme_data.dart';
 import 'package:flutter/material.dart';
 
 /// custom search bar widget
 class SearchBar extends StatelessWidget {
   const SearchBar({
-    @required this.hintText,
-    @required this.onSubmitted,
-    @required this.controller,
+    required this.hintText,
+    required this.onSubmitted,
+    required this.controller,
   });
 
   final String hintText;

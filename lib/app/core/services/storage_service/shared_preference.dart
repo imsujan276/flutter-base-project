@@ -8,7 +8,8 @@ class SharedPref {
   /// read from storage
   Future<String> read(String key) async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getString(key);
+    String? data = prefs.getString(key);
+    return data ?? "";
   }
 
   /// save to storage

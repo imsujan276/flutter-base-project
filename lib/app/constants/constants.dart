@@ -1,4 +1,4 @@
-const String APP_NAME = "Blood Finder";
+const String APP_NAME = "Flutter base project";
 
 class ApiUrl {
   static const String PROD = "https://accounts.acemarktplace.com/mobile/";

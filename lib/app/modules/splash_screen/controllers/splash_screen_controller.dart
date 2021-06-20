@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:blood_finder/app/core/services/storage_service/shared_preference.dart';
-import 'package:blood_finder/app/data/enum/enum.dart';
-import 'package:blood_finder/app/modules/home/views/home_view.dart';
-import 'package:blood_finder/app/utils/app_info.dart';
+import 'package:flutter_base_project/app/core/services/storage_service/shared_preference.dart';
+import 'package:flutter_base_project/app/data/enum/enum.dart';
+import 'package:flutter_base_project/app/modules/home/views/home_view.dart';
+import 'package:flutter_base_project/app/utils/app_info.dart';
 import 'package:get/get.dart';
 
 class SplashScreenController extends GetxController {
@@ -25,7 +25,7 @@ class SplashScreenController extends GetxController {
 
   /// put the internet connectivity controller in memory and navigate to home as root
   void nextPage() async {
-    String token = await pref.read(SHARED_DATA.TOKEN.toString());
+    String token = (await pref.read(SHARED_DATA.TOKEN.toString()))!;
     if (token == null) {
       Get.off(
         () => HomeView(),
