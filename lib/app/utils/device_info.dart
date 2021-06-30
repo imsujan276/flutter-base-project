@@ -9,6 +9,26 @@ class DeviceInfo {
   static String id = "";
   static String version = "";
 
+  static Future<bool> isIos14andAbove() async {
+    bool _isIos14andAbove = false;
+    try {
+      if (Platform.isIOS) {
+        var version = await getIOSVersion();
+        _isIos14andAbove = version >= 14 ? true : false;
+      }
+    } catch (e) {
+      _isIos14andAbove = false;
+    }
+    return _isIos14andAbove;
+  }
+
+  static Future<double> getIOSVersion() async {
+    var iosInfo = await DeviceInfoPlugin().iosInfo;
+    var version = double.parse(iosInfo.systemVersion);
+    print("IOS version => $version");
+    return version;
+  }
+
   /// initialize the class to read devcie info
   Future<void> initPlatformState() async {
     try {

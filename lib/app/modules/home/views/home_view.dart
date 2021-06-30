@@ -1,4 +1,5 @@
 import 'package:flutter_base_project/app/constants/constants.dart';
+import 'package:flutter_base_project/app/constants/controllers.dart';
 import 'package:flutter_base_project/app/constants/theme_data.dart';
 import 'package:flutter_base_project/app/utils/size_config.dart';
 import 'package:flutter_base_project/app/widgets/app_drawer.dart';
@@ -20,7 +21,6 @@ class HomeView extends GetView<HomeController> {
         title: Text(APP_NAME),
       ),
       drawer: AppDrawer(),
-      endDrawer: AppDrawer(),
       body: RefreshIndicator(
         onRefresh: () => controller.reset(),
         child: ListView(
@@ -33,6 +33,10 @@ class HomeView extends GetView<HomeController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      ///show ads
+                      Obx(() => admobController.admobAdLoaded.isTrue
+                          ? admobController.getAdWidget()
+                          : Container()),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

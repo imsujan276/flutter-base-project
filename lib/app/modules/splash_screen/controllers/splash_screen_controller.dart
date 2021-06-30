@@ -1,10 +1,14 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter/services.dart';
+import 'package:flutter_base_project/app/constants/controllers.dart';
 import 'package:flutter_base_project/app/core/services/storage_service/shared_preference.dart';
-import 'package:flutter_base_project/app/data/enum/enum.dart';
 import 'package:flutter_base_project/app/modules/home/views/home_view.dart';
 import 'package:flutter_base_project/app/utils/app_info.dart';
+import 'package:flutter_base_project/app/utils/device_info.dart';
 import 'package:get/get.dart';
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 class SplashScreenController extends GetxController {
   final int splashDelay = 500; // time in seconds
@@ -17,34 +21,25 @@ class SplashScreenController extends GetxController {
     super.onInit();
   }
 
+  @override
+  void onReady() async {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {}
+
   /// set the delay timer for splashscreen
   loadWidget() async {
     var _duration = Duration(milliseconds: splashDelay);
     return Timer(_duration, nextPage);
   }
 
-  /// put the internet connectivity controller in memory and navigate to home as root
+  /// navigate to home as root
   void nextPage() async {
-    String token = (await pref.read(SHARED_DATA.TOKEN.toString()))!;
-    if (token == null) {
-      Get.off(
-        () => HomeView(),
-        // () => AuthView(),
-        transition: Transition.native,
-      );
-    } else {
-      Get.off(
-        () => HomeView(),
-        transition: Transition.native,
-      );
-    }
+    Get.off(
+      () => HomeView(),
+      transition: Transition.native,
+    );
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
 }

@@ -13,22 +13,14 @@ class SplashScreenView extends StatefulWidget {
 class _SplashScreenViewState extends State<SplashScreenView>
     with TickerProviderStateMixin {
   var controller = Get.find<SplashScreenController>();
-  late AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
-    _controller.addListener(() {
-      if (_controller.isCompleted) {
-        controller.loadWidget();
-      }
-    });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
     super.dispose();
   }
 
